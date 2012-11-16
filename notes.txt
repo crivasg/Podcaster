@@ -1,0 +1,23 @@
+Podcaster notes.
+
+Owner Drawn Controls
+
+Typically the ListBox, ComboBox, and MainMenu controls display a series of text items. But with a little extra work you can make many of them display whatever you want. By making these controls owner-drawn, you can use your own code to draw the items in any way you like. They can display images, text, and other graphics drawn by your code, such as ellipses and polygons.
+
+http://www.blackbeltcoder.com/Articles/controls/owner-drawn-controls
+9:08 PM 11/15/2012
+
+
+Reading non-standard elements in a SyndicationItem with SyndicationFeed
+
+http://stackoverflow.com/questions/319591/reading-non-standard-elements-in-a-syndicationitem-with-syndicationfeed
+http://stackoverflow.com/a/790808
+
+9:08 PM 11/15/2012
+
+Consuming rss feed with syndicationfeed
+
+Rss is very often used these days for blogs, file lists and stuff like that. It’s very easy to parse & read the rss feed using C# and syndication feed.
+
+http://www.tapanila.net/consuming-rss-feed-with-syndicationfeed/
+9:09 PM 11/15/2012
