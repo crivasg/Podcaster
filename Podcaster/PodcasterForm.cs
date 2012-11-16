@@ -14,6 +14,17 @@ namespace Podcaster
         public PodcasterForm()
         {
             InitializeComponent();
+            Setup();
+        }
+
+        private void Setup()
+        {
+            podcasterStatusLabel.Text = String.Empty;
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
