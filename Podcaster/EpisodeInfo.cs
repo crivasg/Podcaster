@@ -35,7 +35,7 @@ namespace Podcaster
         public String EpisodeData()
         {
 
-            return String.Format("{0}\n{1}\n{2}", Title, PubDate, Description);
+            return String.Format("{0}\n{3}\nPublication Date:{1}\nDescription:{2}", Title, PubDate, Description, Author);
         }
 
         public void DrawItem(Graphics gr, Rectangle bounds, Font font, bool showNameOnly)

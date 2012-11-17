@@ -50,6 +50,8 @@ namespace Podcaster
             String description = File.ReadAllText(@"C:\Documents and Settings\crivas\Desktop\description.txt");
             Image image2 = Image.FromFile(@"C:\Documents and Settings\crivas\Desktop\geel_friday.jpg");
             String description2 = File.ReadAllText(@"C:\Documents and Settings\crivas\Desktop\geel_friday.txt");
+            Image image3 = Image.FromFile(@"C:\Documents and Settings\crivas\Desktop\the_frequency.jpg");
+            String description3 = File.ReadAllText(@"C:\Documents and Settings\crivas\Desktop\the_fequency.txt");
 
             EpisodeInfo ep1 = new EpisodeInfo()
             {
@@ -70,8 +72,19 @@ namespace Podcaster
                 Number = 2
             };
 
+            EpisodeInfo ep3 = new EpisodeInfo()
+            {
+                Picture = image3,
+                PubDate = DateTime.Now,
+                Author = @"Haddie Cooke & Dan Benjamin",
+                Title = @"The Frequency 23: Don't Sniff my Browser",
+                Description = description3,
+                Number = 2
+            };
+
             episodeList.Items.Add(ep1);
             episodeList.Items.Add(ep2);
+            episodeList.Items.Add(ep3);
         }
 
         private void episodeList_DrawItem(object sender, DrawItemEventArgs e)
@@ -84,7 +97,7 @@ namespace Podcaster
             e.DrawBackground();
 
             // Make the PlanetInfo object draw itself.
-            episodeInfo.DrawItem(e.Graphics, e.Bounds, this.Font, true);
+            episodeInfo.DrawItem(e.Graphics, e.Bounds, this.Font, false);
         }
     }
 }
