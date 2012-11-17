@@ -33,9 +33,8 @@ namespace Podcaster
         // Returuns a summary of the episodes
         public String EpisodeData()
         {
-            String epData = String.Format("{0}\n{1}\n{2}", Title, Description, PubDate);
 
-            return String.Empty;
+            return String.Format("{0}\n{1}\n{2}", Title, PubDate, Description);
         }
 
         public void DrawItem(Graphics gr, Rectangle bounds, Font font, bool showNameOnly)

@@ -54,7 +54,7 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.podcasterStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.episodeList = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -260,23 +260,28 @@
             this.podcasterStatusLabel.Size = new System.Drawing.Size(50, 17);
             this.podcasterStatusLabel.Text = "Status...";
             // 
-            // listBox1
+            // episodeList
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 27);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(468, 394);
-            this.listBox1.TabIndex = 3;
+            this.episodeList.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.episodeList.FormattingEnabled = true;
+            this.episodeList.Location = new System.Drawing.Point(12, 27);
+            this.episodeList.Name = "episodeList";
+            this.episodeList.Size = new System.Drawing.Size(468, 394);
+            this.episodeList.TabIndex = 3;
+            this.episodeList.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.episodeList_DrawItem);
+            this.episodeList.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.ListBox1_MeasureItem);
             // 
             // PodcasterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(492, 448);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.episodeList);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "PodcasterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Podcaster";
@@ -317,7 +322,7 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel podcasterStatusLabel;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox episodeList;
     }
 }
 

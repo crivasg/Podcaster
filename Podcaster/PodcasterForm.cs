@@ -14,7 +14,7 @@ namespace Podcaster
     public partial class PodcasterForm : Form
     {
         // Indicate the amount of space needed for a ListBox item.
-        private const int itemHeight = 100;
+        private const int itemHeight = 150;
 
         public PodcasterForm()
         {
@@ -25,7 +25,7 @@ namespace Podcaster
         private void Setup()
         {
             podcasterStatusLabel.Text = String.Empty;
-            this.episodeListView.DrawMode = DrawMode.OwnerDrawVariable;
+            episodeList.DrawMode = DrawMode.OwnerDrawVariable;
 
             
         }
@@ -37,15 +37,7 @@ namespace Podcaster
 
         private void episodeListView_DrawItem(object sender, DrawListViewItemEventArgs e)
         {
-            ListBox listBox = sender as ListBox;
-            //??
-            EpisodeInfo episodeInfo = listBox.Items[e.ItemIndex] as EpisodeInfo;
 
-            // Draw the background.
-            e.DrawBackground();
-
-            // Make the PlanetInfo object draw itself.
-            episodeInfo.DrawItem(e.Graphics, e.Bounds, this.Font, false);
         }
 
         // Handle the MeasureItem event for an owner-drawn ListBox. 
@@ -58,6 +50,8 @@ namespace Podcaster
         {
             Image image = Image.FromFile(@"C:\Documents and Settings\crivas\Desktop\picture_standard.jpg");
             String description = File.ReadAllText(@"C:\Documents and Settings\crivas\Desktop\description.txt");
+            Image image2 = Image.FromFile(@"C:\Documents and Settings\crivas\Desktop\geel_friday.jpg");
+            String description2 = File.ReadAllText(@"C:\Documents and Settings\crivas\Desktop\geel_friday.txt");
 
             EpisodeInfo ep1 = new EpisodeInfo()
             {
@@ -68,8 +62,31 @@ namespace Podcaster
                 Description = description,
                 Number = 2
             };
+            EpisodeInfo ep2 = new EpisodeInfo()
+            {
+                Picture = image2,
+                PubDate = DateTime.Now,
+                Author = @"Faith Korpi & Jason Seifer",
+                Title = @"Geek Friday 50: You Were Genuinely Concerned That I'm Ill Prepared for Business Time",
+                Description = description2,
+                Number = 2
+            };
 
-            episodeListView.Items.Add(ep1);
+            episodeList.Items.Add(ep1);
+            episodeList.Items.Add(ep2);
+        }
+
+        private void episodeList_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            ListBox listBox = sender as ListBox;
+            //??
+            EpisodeInfo episodeInfo = listBox.Items[e.Index] as EpisodeInfo;
+
+            // Draw the background.
+            e.DrawBackground();
+
+            // Make the PlanetInfo object draw itself.
+            episodeInfo.DrawItem(e.Graphics, e.Bounds, this.Font, false);
         }
     }
 }
