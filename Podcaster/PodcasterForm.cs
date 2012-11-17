@@ -25,6 +25,9 @@ namespace Podcaster
         private void Setup()
         {
             podcasterStatusLabel.Text = String.Empty;
+            this.episodeListView.DrawMode = DrawMode.OwnerDrawVariable;
+
+            
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
