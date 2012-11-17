@@ -267,6 +267,7 @@
             this.episodeListView.Size = new System.Drawing.Size(468, 396);
             this.episodeListView.TabIndex = 2;
             this.episodeListView.UseCompatibleStateImageBehavior = false;
+            this.episodeListView.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.episodeListView_DrawItem);
             // 
             // PodcasterForm
             // 

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 
+// Based on http://www.blackbeltcoder.com/Articles/controls/owner-drawn-controls
+
 namespace Podcaster
 {
     class Episode
@@ -29,7 +31,7 @@ namespace Podcaster
         // Returuns a summary of the episodes
         public String EpisodeData()
         {
-            return String.Empty ;
+            return String.Empty;
         }
 
         public void DrawItem(Graphics gr, Rectangle bounds, Font font, bool showNameOnly)
