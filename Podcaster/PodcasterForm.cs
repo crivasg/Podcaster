@@ -25,9 +25,7 @@ namespace Podcaster
         private void Setup()
         {
             podcasterStatusLabel.Text = String.Empty;
-            episodeList.DrawMode = DrawMode.OwnerDrawVariable;
-
-            
+            episodeList.DrawMode = DrawMode.OwnerDrawVariable; 
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -86,7 +84,7 @@ namespace Podcaster
             e.DrawBackground();
 
             // Make the PlanetInfo object draw itself.
-            episodeInfo.DrawItem(e.Graphics, e.Bounds, this.Font, false);
+            episodeInfo.DrawItem(e.Graphics, e.Bounds, this.Font, true);
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using System.Windows.Forms;
 
 // Based on http://www.blackbeltcoder.com/Articles/controls/owner-drawn-controls
 
@@ -42,13 +43,15 @@ namespace Podcaster
             // Calculate a reasonable margin.
             int margin = (int)(bounds.Height * 0.05);
             int height = bounds.Height - 2 * margin;
+            double ratio = (1.0*Picture.Width) / (1.0*Picture.Height);
+            int dwidth = (int)(100.0 * ratio * height)/100;
 
             // Draw the picture.
             Rectangle srcRect = new Rectangle(0, 0,
                 Picture.Width, Picture.Height);
             Rectangle destRect = new Rectangle(
                 bounds.Left + margin, bounds.Top + margin,
-                height, height);
+                dwidth, height);
             gr.DrawImage(Picture, destRect, srcRect,
                 GraphicsUnit.Pixel);
 
@@ -61,6 +64,7 @@ namespace Podcaster
             using (StringFormat stringFormat = new StringFormat())
             {
                 stringFormat.LineAlignment = StringAlignment.Center;
+                
                 if (showNameOnly)
                 {
                     gr.DrawString(ToString(), font, Brushes.Black,
