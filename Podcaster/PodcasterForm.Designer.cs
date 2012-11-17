@@ -281,6 +281,7 @@
             this.Name = "PodcasterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Podcaster";
+            this.Load += new System.EventHandler(this.PodcasterForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);

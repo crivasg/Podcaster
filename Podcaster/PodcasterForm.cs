@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using System.IO;
+
 namespace Podcaster
 {
     public partial class PodcasterForm : Form
@@ -34,7 +36,7 @@ namespace Podcaster
         {
             ListBox listBox = sender as ListBox;
             //??
-            Episode episodeInfo = listBox.Items[e.ItemIndex] as Episode;
+            EpisodeInfo episodeInfo = listBox.Items[e.ItemIndex] as EpisodeInfo;
 
             // Draw the background.
             e.DrawBackground();
@@ -47,6 +49,24 @@ namespace Podcaster
         private void ListBox1_MeasureItem(object sender,MeasureItemEventArgs e)
         {
             e.ItemHeight = itemHeight;
+        }
+
+        private void PodcasterForm_Load(object sender, EventArgs e)
+        {
+            Image image = Image.FromFile(@"C:\Documents and Settings\crivas\Desktop\picture_standard.jpg");
+            String description = File.ReadAllText(@"C:\Documents and Settings\crivas\Desktop\description.txt");
+
+            EpisodeInfo ep1 = new EpisodeInfo()
+            {
+                Picture = image,
+                PubDate = DateTime.Now,
+                Author = @"Moisés Chiullan",
+                Title = @"Giant Size 2: Punch Holes in the Sky",
+                Description = description,
+                Number = 2
+            };
+
+            episodeListView.Items.Add(ep1);
         }
     }
 }

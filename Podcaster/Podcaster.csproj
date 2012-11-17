@@ -63,7 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Episode.cs" />
+    <Compile Include="EpisodeInfo.cs" />
     <Compile Include="PodcasterForm.cs">
       <SubType>Form</SubType>
     </Compile>
