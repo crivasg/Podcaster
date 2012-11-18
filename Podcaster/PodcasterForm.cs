@@ -50,18 +50,15 @@ namespace Podcaster
         {
 
             PingReply reply = Utilities.PingServer(@"8.8.8.8");
-
-            String replyString = String.Format("Address: {0}\n", reply.Address.ToString()) +
-                String.Format("RoundTrip time: {0}\n", reply.RoundtripTime) +
-                String.Format("Time to live: {0}\n", reply.Options.Ttl) +
-                String.Format("Don't fragment: {0}\n", reply.Options.DontFragment) +
-                String.Format("Buffer size: {0}", reply.Buffer.Length);
-
-            MessageBox.Show(replyString);
-
             if (reply.Status != IPStatus.Success)
             {
-                return;
+                String replyString = String.Format("\n\nAddress: {0}\n", reply.Address.ToString()) + 
+                    String.Format("RoundTrip time: {0}\n", reply.RoundtripTime) +
+                    String.Format("Time to live: {0}\n", reply.Options.Ttl) +
+                    String.Format("Don't fragment: {0}\n", reply.Options.DontFragment) + 
+                    String.Format("Buffer size: {0}", reply.Buffer.Length);
+
+                MessageBox.Show(@"Failed to detect the networks. Please, chec your network settings" + replyString);
             }
 
             Image image = Image.FromFile(@"C:\Documents and Settings\crivas\Desktop\picture_standard.jpg");
