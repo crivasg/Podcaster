@@ -21,3 +21,7 @@ Rss is very often used these days for blogs, file lists and stuff like that. It’
 
 http://www.tapanila.net/consuming-rss-feed-with-syndicationfeed/
 9:09 PM 11/15/2012
+
+Custom tags and attributes in a SyndicationItem
+http://lkarolak.wordpress.com/2010/06/10/custom-tags-and-attributes-in-a-syndicationitem/
+8:42 PM 11/17/2012
