@@ -31,3 +31,9 @@ To use the Syndication  (System.ServiceModel.Syndication) namespace, add referen
 
     Error   1   The type or namespace name 'Syndication' does not exist in the namespace 'System.ServiceModel' (are you missing an assembly reference?) C:\work\Code4Fun\Podcaster\Podcaster\PodcasterForm.cs   15  27  Podcaster
 
+
+System.ServiceModel.Syndication or how to read RSS feeds in .NET
+
+Today, a lot of websites have their content provided in feeds that users can subscribe to. Feeds basically are a simplified version of the site content, providing text and media –only representation of the data published on the website. One of the most popular feed formats is RSS and it stands for Really Simple Syndication. It is XML-based and is used by the majority of websites that contain dynamically updated content, like blogs or news resources.
+
+http://dotnet.dzone.com/articles/systemservicemodelsyndication
