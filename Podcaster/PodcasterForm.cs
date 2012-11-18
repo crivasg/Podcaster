@@ -67,7 +67,23 @@ namespace Podcaster
             }
 
             // Test how to use the syndication feed
+            // http://msdn.microsoft.com/en-us/library/system.servicemodel.syndication.syndicationfeed(v=vs.90).aspx
 
+            String feedUrl = @"http://blog.stackoverflow.com/index.php?feed=podcast";
+            using (XmlReader feedReader = XmlReader.Create(feedUrl))
+            {
+                SyndicationFeed feedContent = SyndicationFeed.Load(feedReader);
+                if (null == feedContent) 
+                {
+                    return;
+                }
+
+                foreach (SyndicationItem item in feedContent.Items)
+                {
+                    MessageBox.Show(item.Title.Text);
+                }
+
+            }
 
             // Test how to create custom ListBox
             Image image = Image.FromFile(@"C:\Documents and Settings\crivas\Desktop\picture_standard.jpg");
