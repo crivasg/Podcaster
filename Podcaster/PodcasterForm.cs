@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 
 using System.IO;
+using System.Net;
+using System.Net.NetworkInformation;
 
 namespace Podcaster
 {
@@ -46,6 +48,22 @@ namespace Podcaster
 
         private void PodcasterForm_Load(object sender, EventArgs e)
         {
+
+            PingReply reply = Utilities.PingServer(@"8.8.8.8");
+
+            String replyString = String.Format("Address: {0}\n", reply.Address.ToString()) +
+                String.Format("RoundTrip time: {0}\n", reply.RoundtripTime) +
+                String.Format("Time to live: {0}\n", reply.Options.Ttl) +
+                String.Format("Don't fragment: {0}\n", reply.Options.DontFragment) +
+                String.Format("Buffer size: {0}", reply.Buffer.Length);
+
+            MessageBox.Show(replyString);
+
+            if (reply.Status != IPStatus.Success)
+            {
+                return;
+            }
+
             Image image = Image.FromFile(@"C:\Documents and Settings\crivas\Desktop\picture_standard.jpg");
             String description = File.ReadAllText(@"C:\Documents and Settings\crivas\Desktop\description.txt");
             Image image2 = Image.FromFile(@"C:\Documents and Settings\crivas\Desktop\geel_friday.jpg");
