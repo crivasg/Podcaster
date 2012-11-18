@@ -25,3 +25,9 @@ http://www.tapanila.net/consuming-rss-feed-with-syndicationfeed/
 Custom tags and attributes in a SyndicationItem
 http://lkarolak.wordpress.com/2010/06/10/custom-tags-and-attributes-in-a-syndicationitem/
 8:42 PM 11/17/2012
+
+
+To use the Syndication  (System.ServiceModel.Syndication) namespace, add references to System.ServiceModel and System.ServiceModel.Web. If not, the following error will be present: 
+
+    Error   1   The type or namespace name 'Syndication' does not exist in the namespace 'System.ServiceModel' (are you missing an assembly reference?) C:\work\Code4Fun\Podcaster\Podcaster\PodcasterForm.cs   15  27  Podcaster
+
