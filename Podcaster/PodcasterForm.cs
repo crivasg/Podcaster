@@ -11,6 +11,11 @@ using System.IO;
 using System.Net;
 using System.Net.NetworkInformation;
 
+using System.ServiceModel;
+using System.ServiceModel.Syndication;
+using System.Xml;
+using System.Xml.Linq;
+
 namespace Podcaster
 {
     public partial class PodcasterForm : Form
@@ -61,6 +66,10 @@ namespace Podcaster
                 MessageBox.Show(@"Failed to detect the networks. Please, chec your network settings" + replyString);
             }
 
+            // Test how to use the syndication feed
+
+
+            // Test how to create custom ListBox
             Image image = Image.FromFile(@"C:\Documents and Settings\crivas\Desktop\picture_standard.jpg");
             String description = File.ReadAllText(@"C:\Documents and Settings\crivas\Desktop\description.txt");
             Image image2 = Image.FromFile(@"C:\Documents and Settings\crivas\Desktop\geel_friday.jpg");
