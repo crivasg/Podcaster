@@ -8,7 +8,7 @@ namespace Podcaster
     class PodcastFeed
     {
         public String URL { private get; set; }
-        public String[] Episodes { get; private set; }
+        public List<Episode> Episodes { get; private set; }
 
         public PodcastFeed()
         { 

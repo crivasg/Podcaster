@@ -64,6 +64,7 @@ namespace Podcaster
                     String.Format("Buffer size: {0}", reply.Buffer.Length);
 
                 MessageBox.Show(@"Failed to detect the networks. Please, chec your network settings" + replyString);
+                return;
             }
 
             // Test how to use the syndication feed
@@ -72,6 +73,7 @@ namespace Podcaster
             List<String> titleList = new List<String>();
 
             String feedUrl = @"http://feeds.5by5.tv/master";
+            feedUrl = @"C:\Documents and Settings\crivas\Desktop\itunes.feed.example.xml";
             using (XmlReader feedReader = XmlReader.Create(feedUrl))
             {
                 SyndicationFeed feedContent = SyndicationFeed.Load(feedReader);
