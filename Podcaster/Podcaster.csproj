@@ -78,6 +78,7 @@
     <Compile Include="PodcasterForm.Designer.cs">
       <DependentUpon>PodcasterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PodcastFeed.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="PodcasterForm.resx">
