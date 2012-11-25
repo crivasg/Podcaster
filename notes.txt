@@ -37,3 +37,12 @@ System.ServiceModel.Syndication or how to read RSS feeds in .NET
 Today, a lot of websites have their content provided in feeds that users can subscribe to. Feeds basically are a simplified version of the site content, providing text and media –only representation of the data published on the website. One of the most popular feed formats is RSS and it stands for Really Simple Syndication. It is XML-based and is used by the majority of websites that contain dynamically updated content, like blogs or news resources.
 
 http://dotnet.dzone.com/articles/systemservicemodelsyndication
+
+
+
+RSS feed sample
+http://sitemanager.itunes.apple.com/help/#AboutTheFeedEditor/chapter_10_section_11.html
+The following is an example of a well-formed iTunes RSS feed.
+
+At this time, iTunes U Public Site Manager does not ingest data from all of the tags used in this RSS feed sample (for example, copyright).
+11/25/2012 6:27 PM
