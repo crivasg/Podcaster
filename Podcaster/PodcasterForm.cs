@@ -70,33 +70,16 @@ namespace Podcaster
             // Test how to use the syndication feed
             // http://msdn.microsoft.com/en-us/library/system.servicemodel.syndication.syndicationfeed(v=vs.90).aspx
 
-            List<String> titleList = new List<String>();
+            
 
             String feedUrl = @"http://feeds.5by5.tv/master";
             feedUrl = @"C:\Documents and Settings\crivas\Desktop\itunes.feed.example.xml";
-            using (XmlReader feedReader = XmlReader.Create(feedUrl))
+
+            PodcastFeed feed = new PodcastFeed()
             {
-                SyndicationFeed feedContent = SyndicationFeed.Load(feedReader);
-                if (null == feedContent) 
-                {
-                    return;
-                }
-
-                foreach (SyndicationItem item in feedContent.Items)
-                {
-                    titleList.Add(item.Title.Text);
-
-                    foreach(SyndicationLink links in item.Links.Where(links => links.RelationshipType == "enclosure" ))
-                    {
-                        
-                        
-                    }
-
-                }
-
-            }
-
-            MessageBox.Show(String.Join(Environment.NewLine, titleList.ToArray()));
+                URL = @"C:\Documents and Settings\crivas\Desktop\itunes.feed.example.xml"
+            };
+            feed.Parse();
 
             // Test how to create custom ListBox
             Image image = Image.FromFile(@"C:\Documents and Settings\crivas\Desktop\picture_standard.jpg");
