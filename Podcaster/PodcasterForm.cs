@@ -67,14 +67,6 @@ namespace Podcaster
                 return;
             }
 
-            // Test how to use the syndication feed
-            // http://msdn.microsoft.com/en-us/library/system.servicemodel.syndication.syndicationfeed(v=vs.90).aspx
-
-            
-
-            String feedUrl = @"http://feeds.5by5.tv/master";
-            feedUrl = @"C:\Documents and Settings\crivas\Desktop\itunes.feed.example.xml";
-
             PodcastFeed feed = new PodcastFeed()
             {
                 URL = @"C:\Documents and Settings\crivas\Desktop\itunes.feed.example.xml"

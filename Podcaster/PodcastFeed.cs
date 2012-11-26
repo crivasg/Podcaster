@@ -14,6 +14,9 @@ namespace Podcaster
 {
     class PodcastFeed
     {
+        // Test how to use the syndication feed
+        // http://msdn.microsoft.com/en-us/library/system.servicemodel.syndication.syndicationfeed(v=vs.90).aspx
+        // http://feeds.5by5.tv/master
         public String URL { private get; set; }
         public List<Episode> Episodes { get; private set; }
 
