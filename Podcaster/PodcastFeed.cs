@@ -60,10 +60,20 @@ namespace Podcaster
                     String imageOuterXML = imageNavigator.OuterXml;
 
                     String imageUrl = String.Empty;
-
                     if (imageNavigator.MoveToFirstAttribute())
                     {
-                        imageUrl = imageNavigator.Value.ToString();
+                        if (imageNavigator.Name == "href")
+                        {
+                            imageUrl = imageNavigator.Value.ToString();
+                        }
+                        while (imageNavigator.MoveToNextAttribute())
+                        {
+                            if (imageNavigator.Name == "href")
+                            {
+                                imageUrl = imageNavigator.Value.ToString();
+                            }
+                        }
+                        
                         // go back from the attributes to the parent element
                         imageNavigator.MoveToParent();
                     }
