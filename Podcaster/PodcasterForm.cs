@@ -47,6 +47,15 @@ namespace Podcaster
                 Application.Exit();
             }
 
+            // Creates the %APPDATA folder% ...
+            String appdata = Path.Combine(Environment.GetEnvironmentVariable(@"APPDATA"), 
+                Path.GetFileNameWithoutExtension(Application.ExecutablePath));
+
+            if (!Directory.Exists(appdata))
+            {
+                Directory.CreateDirectory(appdata);
+            }
+
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
