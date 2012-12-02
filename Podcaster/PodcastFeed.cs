@@ -31,26 +31,31 @@ namespace Podcaster
             using (XmlReader feedReader = XmlReader.Create(this.URL))
             {
                 SyndicationFeed feedContent = SyndicationFeed.Load(feedReader);
-                if (null == feedContent)
+                //XmlQualifiedName n = new XmlQualifiedName("itunes", "http://www.w3.org/2000/xmlns/");
+                //String itunesNs = "http://www.itunes.com/dtds/podcast-1.0.dtd";
+                //feedContent.AttributeExtensions.Add(n, itunesNs);
+                if (feedContent == null)
                 {
                     return;
                 }
 
                 foreach (SyndicationItem item in feedContent.Items)
                 {
-                    titleList.Add(item.Title.Text);
+                    SyndicationPerson author = item.Authors[0];
+                    
+                    titleList.Add(item.Title.Text + "\n" + author.Email + "\n" + item.PublishDate.LocalDateTime.ToString() + "\n" + item.Summary.Text);
 
-                    foreach (SyndicationLink links in item.Links.Where(links => links.RelationshipType == "enclosure"))
+                    //foreach (SyndicationLink links in item.Links.Where(links => links.RelationshipType == "enclosure"))
+                    foreach (SyndicationLink links in item.Links)
                     {
 
-
+                        
                     }
 
                 }
 
             }
-
-            MessageBox.Show(String.Join(Environment.NewLine, titleList.ToArray()));        
+            File.WriteAllLines(@"C:\Documents and Settings\crivas\Desktop\5by5.txt",titleList.ToArray());     
         }
 
     }
