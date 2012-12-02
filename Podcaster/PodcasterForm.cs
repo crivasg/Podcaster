@@ -32,7 +32,21 @@ namespace Podcaster
         private void Setup()
         {
             podcasterStatusLabel.Text = String.Empty;
-            episodeList.DrawMode = DrawMode.OwnerDrawVariable; 
+            episodeList.DrawMode = DrawMode.OwnerDrawVariable;
+
+            PingReply reply = Utilities.PingServer(@"8.8.8.8");
+            if (reply.Status != IPStatus.Success)
+            {
+                String replyString = String.Format("\n\nAddress: {0}\n", reply.Address.ToString()) +
+                    String.Format("RoundTrip time: {0}\n", reply.RoundtripTime) +
+                    String.Format("Time to live: {0}\n", reply.Options.Ttl) +
+                    String.Format("Don't fragment: {0}\n", reply.Options.DontFragment) +
+                    String.Format("Buffer size: {0}", reply.Buffer.Length);
+
+                MessageBox.Show(@"Failed to detect the networks. Please, chec your network settings" + replyString);
+                Application.Exit();
+            }
+
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -53,19 +67,6 @@ namespace Podcaster
 
         private void PodcasterForm_Load(object sender, EventArgs e)
         {
-
-            PingReply reply = Utilities.PingServer(@"8.8.8.8");
-            if (reply.Status != IPStatus.Success)
-            {
-                String replyString = String.Format("\n\nAddress: {0}\n", reply.Address.ToString()) + 
-                    String.Format("RoundTrip time: {0}\n", reply.RoundtripTime) +
-                    String.Format("Time to live: {0}\n", reply.Options.Ttl) +
-                    String.Format("Don't fragment: {0}\n", reply.Options.DontFragment) + 
-                    String.Format("Buffer size: {0}", reply.Buffer.Length);
-
-                MessageBox.Show(@"Failed to detect the networks. Please, chec your network settings" + replyString);
-                return;
-            }
 
             PodcastFeed feed = new PodcastFeed()
             {
