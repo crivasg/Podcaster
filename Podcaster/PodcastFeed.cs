@@ -22,11 +22,13 @@ namespace Podcaster
         public List<Episode> Episodes { get; private set; }
 
         public PodcastFeed()
-        { 
+        {
+            
         }
 
         public void Parse()
         {
+            Episodes = new List<Episode>();
             List<String> titleList = new List<String>();
 
             using (XmlReader feedReader = XmlReader.Create(this.URL))
@@ -79,29 +81,45 @@ namespace Podcaster
                     }
                  
 
-                    string authorx = authorNavigator != null ? authorNavigator.Value : String.Empty;
-                    string subtitle = subtitleNavigator != null ? subtitleNavigator.Value : String.Empty;
-                    string summary = summaryNavigator != null ? summaryNavigator.Value : String.Empty;
-                    string duration = durationNavigator != null ? durationNavigator.Value : String.Empty;
-                    
+                    String authorx = authorNavigator != null ? authorNavigator.Value : String.Empty;
+                    String subtitle = subtitleNavigator != null ? subtitleNavigator.Value : String.Empty;
+                    String summary = summaryNavigator != null ? summaryNavigator.Value : String.Empty;
+                    String duration = durationNavigator != null ? durationNavigator.Value : String.Empty;
+
+                    Uri url = null;
+                    long length = 0;
+                    String mediaType = String.Empty;
+
                     foreach (SyndicationLink links in item.Links.Where<SyndicationLink>(links => links.RelationshipType == "enclosure"))
                     {
-                        Uri url = links.Uri;
-                        long length = links.Length;
-                        string mediaType = links.MediaType;
-
-                        titleList.Add(item.Title.Text + "\n" + author.Email + "\n" + 
-                            item.PublishDate.LocalDateTime.ToString() + "\n" +
-                            url.ToString() + " " + length.ToString() + " " + mediaType +
-                            "\n" + imageUrl +
-                            "\n\n" + item.Summary.Text);
-                        
+                        url = links.Uri;
+                        length = links.Length;
+                        mediaType = links.MediaType;
                     }
 
+                    Episode podcastEpisode = new Episode()
+                    {
+                        Title = item.Title.Text,
+                        Authors = author.Email,
+                        PubData = item.PublishDate.LocalDateTime,
+                        FileUrl = url,
+                        Length = length,
+                        Type = mediaType,
+                        ImageUrl = new Uri(imageUrl),
+                        Description = item.Summary.Text
+                    };
+
+                    this.Episodes.Add(podcastEpisode);
+
+                    titleList.Add(podcastEpisode.ToString());
+
+                    
                 }
 
+                File.WriteAllText(@"C:\Documents and Settings\crivas\Desktop\5by5.txt", String.Join(Environment.NewLine,  titleList.ToArray()));
+
             }
-            File.WriteAllLines(@"C:\Documents and Settings\crivas\Desktop\5by5.txt",titleList.ToArray());     
+             
         }
 
     }

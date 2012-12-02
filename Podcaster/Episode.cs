@@ -10,7 +10,7 @@ namespace Podcaster
         public String Title { get; set; }
         public String Authors { get; set; }
         public DateTime PubData { get; set; }
-        public Uri Url { get; set; }
+        public Uri FileUrl { get; set; }
         public long Length { get; set; }
         public String Type { get; set; }
         public Uri ImageUrl { get; set; }
@@ -25,7 +25,7 @@ namespace Podcaster
         {
             return String.Format("{0}\n{1}\n{2}\n\n{3}", 
                 this.Title,this.Authors,this.PubData.ToString(),
-                this.Description.Length > 100 ? this.Description.Substring(0,100): this.Description);
+                this.Description);
         }
     }
 }

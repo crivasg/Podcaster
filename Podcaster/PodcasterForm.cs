@@ -73,47 +73,27 @@ namespace Podcaster
                 URL = @"http://feeds.5by5.tv/master"
             };
             feed.Parse();
+            List<Episode> episodeData = new List<Episode>();
+            episodeData = feed.Episodes;
 
             // Test how to create custom ListBox
-            Image image = Image.FromFile(@"C:\Documents and Settings\crivas\Desktop\picture_standard.jpg");
-            String description = File.ReadAllText(@"C:\Documents and Settings\crivas\Desktop\description.txt");
-            Image image2 = Image.FromFile(@"C:\Documents and Settings\crivas\Desktop\geel_friday.jpg");
-            String description2 = File.ReadAllText(@"C:\Documents and Settings\crivas\Desktop\geel_friday.txt");
+            Image image = Image.FromFile(@"C:\Documents and Settings\crivas\Desktop\40.jpg");
+            Image image2 = Image.FromFile(@"C:\Documents and Settings\crivas\Desktop\29.jpg");
             Image image3 = Image.FromFile(@"C:\Documents and Settings\crivas\Desktop\the_frequency.jpg");
-            String description3 = File.ReadAllText(@"C:\Documents and Settings\crivas\Desktop\the_fequency.txt");
 
-            EpisodeInfo ep1 = new EpisodeInfo()
+            foreach (Episode episode in episodeData)
             {
-                Picture = image,
-                PubDate = DateTime.Now,
-                Author = @"Moisés Chiullan",
-                Title = @"Giant Size 2: Punch Holes in the Sky",
-                Description = description,
-                Number = 2
-            };
-            EpisodeInfo ep2 = new EpisodeInfo()
-            {
-                Picture = image2,
-                PubDate = DateTime.Now,
-                Author = @"Faith Korpi & Jason Seifer",
-                Title = @"Geek Friday 50: You Were Genuinely Concerned That I'm Ill Prepared for Business Time",
-                Description = description2,
-                Number = 2
-            };
-
-            EpisodeInfo ep3 = new EpisodeInfo()
-            {
-                Picture = image3,
-                PubDate = DateTime.Now,
-                Author = @"Haddie Cooke & Dan Benjamin",
-                Title = @"The Frequency 23: Don't Sniff my Browser",
-                Description = description3,
-                Number = 2
-            };
-
-            episodeList.Items.Add(ep1);
-            episodeList.Items.Add(ep2);
-            episodeList.Items.Add(ep3);
+                EpisodeInfo ep1 = new EpisodeInfo()
+                {
+                    Picture = image,
+                    PubDate = episode.PubData,
+                    Author = episode.Authors,
+                    Title = episode.Title,
+                    Description = episode.Description,
+                    Number = 2
+                };
+                episodeList.Items.Add(ep1);
+            }
         }
 
         private void episodeList_DrawItem(object sender, DrawItemEventArgs e)
