@@ -46,3 +46,7 @@ The following is an example of a well-formed iTunes RSS feed.
 
 At this time, iTunes U Public Site Manager does not ingest data from all of the tags used in this RSS feed sample (for example, copyright).
 11/25/2012 6:27 PM
+
+You can use a combination of LINQ and XPathNavigator to extract the syndication extensions of a feed item (based on namespace URI of the extension). For item enclosures, you will want to examine the item links collection for links that have a RelationshipType of enclosure.
+
+http://stackoverflow.com/a/321595
