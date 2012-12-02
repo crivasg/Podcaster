@@ -29,7 +29,6 @@ namespace Podcaster
         public void Parse()
         {
             Episodes = new List<Episode>();
-            List<String> titleList = new List<String>();
 
             using (XmlReader feedReader = XmlReader.Create(this.URL))
             {
@@ -110,17 +109,27 @@ namespace Podcaster
                     };
 
                     this.Episodes.Add(podcastEpisode);
-
-                    titleList.Add(podcastEpisode.ToString());
-
                     
                 }
 
-                File.WriteAllText(@"C:\Documents and Settings\crivas\Desktop\5by5.txt", String.Join(Environment.NewLine,  titleList.ToArray()));
-
+       
             }
              
         }
 
+        /// <summary>
+        /// Stores the feeds in a SQLite database
+        /// </summary>
+        public void Feed2SQLite()
+        { 
+        
+        }
+
+        /// <summary>
+        /// Downloads the episode covers to %APPDATA%\Podcaster\Covers
+        /// </summary>
+        public void DownloadEpisodeCover()
+        { 
+        }
     }
 }
