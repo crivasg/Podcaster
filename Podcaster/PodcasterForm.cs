@@ -70,7 +70,7 @@ namespace Podcaster
 
             PodcastFeed feed = new PodcastFeed()
             {
-                URL = @"C:\Documents and Settings\crivas\Desktop\itunes.feed.example.xml"
+                URL = @"http://feeds.5by5.tv/master"
             };
             feed.Parse();
 

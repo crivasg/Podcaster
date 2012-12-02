@@ -38,7 +38,7 @@ namespace Podcaster
             // Create a buffer of 32 bytes of data to be transmitted.
             String data = new String('a', 32);
             byte[] buffer = Encoding.ASCII.GetBytes(data);
-            int timeout = 120;
+            int timeout = 240;
 
             PingReply reply = pingSender.Send(serverIp, timeout, buffer, options);
             return reply;
